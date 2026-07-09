@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Compass, Menu } from "lucide-react";
+import { Bell, Compass, Heart, Menu, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -8,53 +9,127 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", to: "/" },
-  { label: "Design System", to: "/design-system" },
+  { label: "Destinations", to: "/" },
+  { label: "Packages", to: "/" },
+  { label: "Government", to: "/" },
+  { label: "Training", to: "/" },
+  { label: "Heritage", to: "/" },
+  { label: "Student", to: "/" },
+  { label: "Blogs", to: "/" },
+  { label: "Contact", to: "/" },
 ];
 
-export function SiteHeader() {
+interface SiteHeaderProps {
+  transparentOnTop?: boolean;
+}
+
+export function SiteHeader({ transparentOnTop = false }: SiteHeaderProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!transparentOnTop) return;
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [transparentOnTop]);
+
+  const transparent = transparentOnTop && !scrolled;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <header
+      className={cn(
+        "sticky top-0 z-50 transition-colors duration-300",
+        transparent
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-border bg-background/90 backdrop-blur-md shadow-xs",
+      )}
+    >
+      <div
+        className={cn(
+          "mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8",
+          transparent && "text-primary-foreground",
+        )}
+      >
         <Link to="/" className="flex min-w-0 items-center gap-2.5">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-gradient-royal text-primary-foreground shadow-sm">
+          <span
+            className={cn(
+              "grid h-10 w-10 shrink-0 place-items-center rounded-md shadow-sm",
+              transparent ? "bg-gradient-sunset text-accent-foreground" : "bg-gradient-royal text-primary-foreground",
+            )}
+          >
             <Compass className="h-5 w-5" />
           </span>
           <span className="min-w-0">
-            <span className="block truncate font-display text-base font-semibold leading-tight text-foreground">
+            <span
+              className={cn(
+                "block truncate font-display text-base font-semibold leading-tight",
+                transparent ? "text-primary-foreground" : "text-foreground",
+              )}
+            >
               Paryatan Bharati
             </span>
-            <span className="text-overline block text-[10px] text-muted-foreground">
+            <span
+              className={cn(
+                "text-overline block text-[10px]",
+                transparent ? "text-primary-foreground/70" : "text-muted-foreground",
+              )}
+            >
               Incredible India, Digitally
             </span>
           </span>
         </Link>
 
-        <div className="flex items-center gap-2">
-          <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+        <div className="flex items-center gap-1">
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">
             {navLinks.map((l) => (
               <Link
-                key={l.to}
+                key={l.label}
                 to={l.to}
-                className="rounded-sm px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary [&.active]:text-primary"
-                activeProps={{ className: "active" }}
+                className={cn(
+                  "rounded-sm px-3 py-2 text-sm font-medium transition-colors",
+                  transparent
+                    ? "text-primary-foreground/85 hover:text-primary-foreground"
+                    : "text-muted-foreground hover:text-primary",
+                )}
               >
                 {l.label}
               </Link>
             ))}
-            <Button variant="hero" size="default" className="ml-2">
-              Plan a Trip
-            </Button>
           </nav>
+
+          <div className="hidden items-center gap-1 lg:flex">
+            <IconAction transparent={transparent} label="Search">
+              <Search className="h-5 w-5" />
+            </IconAction>
+            <IconAction transparent={transparent} label="Wishlist">
+              <Heart className="h-5 w-5" />
+            </IconAction>
+            <IconAction transparent={transparent} label="Notifications">
+              <Bell className="h-5 w-5" />
+            </IconAction>
+            <IconAction transparent={transparent} label="Profile">
+              <User className="h-5 w-5" />
+            </IconAction>
+          </div>
+
+          <Button variant="hero" size="default" className="ml-2 hidden md:inline-flex">
+            Plan My Trip
+          </Button>
 
           <Sheet>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="min-h-11 min-w-11 md:hidden"
+                className={cn(
+                  "min-h-11 min-w-11 xl:hidden",
+                  transparent && "text-primary-foreground hover:bg-white/10 hover:text-primary-foreground",
+                )}
                 aria-label="Open menu"
               >
                 <Menu />
@@ -67,7 +142,7 @@ export function SiteHeader() {
               <nav className="mt-6 flex flex-col gap-1 px-4" aria-label="Mobile">
                 {navLinks.map((l) => (
                   <Link
-                    key={l.to}
+                    key={l.label}
                     to={l.to}
                     className="rounded-sm px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
                   >
@@ -75,7 +150,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 <Button variant="hero" className="mt-4">
-                  Plan a Trip
+                  Plan My Trip
                 </Button>
               </nav>
             </SheetContent>
@@ -83,5 +158,31 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
+  );
+}
+
+function IconAction({
+  children,
+  label,
+  transparent,
+}: {
+  children: React.ReactNode;
+  label: string;
+  transparent: boolean;
+}) {
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      aria-label={label}
+      className={cn(
+        "h-10 w-10",
+        transparent
+          ? "text-primary-foreground/90 hover:bg-white/10 hover:text-primary-foreground"
+          : "text-muted-foreground hover:text-primary",
+      )}
+    >
+      {children}
+    </Button>
   );
 }
