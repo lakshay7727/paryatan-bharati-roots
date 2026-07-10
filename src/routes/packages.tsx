@@ -42,7 +42,7 @@ const PACKAGES = [
   { slug: "hampi-heritage", title: "Hampi Heritage Weekend", cities: "Hampi · Badami", days: 3, price: 12999, mrp: 16000, type: "Student", rating: 4.6, image: destHampi },
 ];
 
-export default {};
+
 
 function PackagesPage() {
   return (

@@ -193,7 +193,7 @@ function PackageDetails() {
               <p className="text-xs text-muted-foreground">per person on twin sharing</p>
               <Separator className="my-4" />
               <Button asChild variant="hero" size="lg" className="w-full">
-                <Link to="/booking" search={{ pkg: slug }}>Book now</Link>
+                <Link to="/booking">Book now</Link>
               </Button>
               <Button variant="outline" className="mt-2 w-full">Talk to a planner</Button>
               <div className="mt-4 flex items-center gap-2 rounded-md bg-emerald-50 p-3 text-xs text-emerald-800">
