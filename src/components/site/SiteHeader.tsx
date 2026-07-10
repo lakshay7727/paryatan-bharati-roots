@@ -12,15 +12,13 @@ import {
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Destinations", to: "/" },
-  { label: "Packages", to: "/" },
-  { label: "Government", to: "/" },
-  { label: "Training", to: "/" },
-  { label: "Heritage", to: "/" },
-  { label: "Student", to: "/" },
-  { label: "Blogs", to: "/" },
-  { label: "Contact", to: "/" },
+  { label: "Home", to: "/" as const },
+  { label: "Destinations", to: "/destinations" as const },
+  { label: "Packages", to: "/packages" as const },
+  { label: "Blogs", to: "/blogs" as const },
+  { label: "About", to: "/about" as const },
+  { label: "FAQ", to: "/faq" as const },
+  { label: "Contact", to: "/contact" as const },
 ];
 
 interface SiteHeaderProps {
