@@ -9,13 +9,63 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookingsRouteImport } from './routes/bookings'
+import { Route as BookingRouteImport } from './routes/booking'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
+import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackagesRoute = PackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DestinationsRoute = DestinationsRouteImport.update({
+  id: '/destinations',
+  path: '/destinations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignSystemRoute = DesignSystemRouteImport.update({
@@ -23,49 +73,250 @@ const DesignSystemRoute = DesignSystemRouteImport.update({
   path: '/design-system',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingsRoute = BookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PackagesSlugRoute = PackagesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => PackagesRoute,
+} as any)
+const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DestinationsRoute,
+} as any)
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/booking': typeof BookingRoute
+  '/bookings': typeof BookingsRoute
+  '/contact': typeof ContactRoute
   '/design-system': typeof DesignSystemRoute
+  '/destinations': typeof DestinationsRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/notifications': typeof NotificationsRoute
+  '/packages': typeof PackagesRouteWithChildren
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/wishlist': typeof WishlistRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/booking': typeof BookingRoute
+  '/bookings': typeof BookingsRoute
+  '/contact': typeof ContactRoute
   '/design-system': typeof DesignSystemRoute
+  '/destinations': typeof DestinationsRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/notifications': typeof NotificationsRoute
+  '/packages': typeof PackagesRouteWithChildren
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/wishlist': typeof WishlistRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/booking': typeof BookingRoute
+  '/bookings': typeof BookingsRoute
+  '/contact': typeof ContactRoute
   '/design-system': typeof DesignSystemRoute
+  '/destinations': typeof DestinationsRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/notifications': typeof NotificationsRoute
+  '/packages': typeof PackagesRouteWithChildren
+  '/profile': typeof ProfileRoute
+  '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/wishlist': typeof WishlistRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/design-system' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/booking'
+    | '/bookings'
+    | '/contact'
+    | '/design-system'
+    | '/destinations'
+    | '/faq'
+    | '/notifications'
+    | '/packages'
+    | '/profile'
+    | '/search'
+    | '/sitemap.xml'
+    | '/wishlist'
+    | '/blogs/$slug'
+    | '/destinations/$slug'
+    | '/packages/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/design-system' | '/sitemap.xml'
-  id: '__root__' | '/' | '/design-system' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/booking'
+    | '/bookings'
+    | '/contact'
+    | '/design-system'
+    | '/destinations'
+    | '/faq'
+    | '/notifications'
+    | '/packages'
+    | '/profile'
+    | '/search'
+    | '/sitemap.xml'
+    | '/wishlist'
+    | '/blogs/$slug'
+    | '/destinations/$slug'
+    | '/packages/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/booking'
+    | '/bookings'
+    | '/contact'
+    | '/design-system'
+    | '/destinations'
+    | '/faq'
+    | '/notifications'
+    | '/packages'
+    | '/profile'
+    | '/search'
+    | '/sitemap.xml'
+    | '/wishlist'
+    | '/blogs/$slug'
+    | '/destinations/$slug'
+    | '/packages/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogsRoute: typeof BlogsRouteWithChildren
+  BookingRoute: typeof BookingRoute
+  BookingsRoute: typeof BookingsRoute
+  ContactRoute: typeof ContactRoute
   DesignSystemRoute: typeof DesignSystemRoute
+  DestinationsRoute: typeof DestinationsRouteWithChildren
+  FaqRoute: typeof FaqRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PackagesRoute: typeof PackagesRouteWithChildren
+  ProfileRoute: typeof ProfileRoute
+  SearchRoute: typeof SearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WishlistRoute: typeof WishlistRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packages': {
+      id: '/packages'
+      path: '/packages'
+      fullPath: '/packages'
+      preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destinations': {
+      id: '/destinations'
+      path: '/destinations'
+      fullPath: '/destinations'
+      preLoaderRoute: typeof DestinationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/design-system': {
@@ -75,6 +326,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookings': {
+      id: '/bookings'
+      path: '/bookings'
+      fullPath: '/bookings'
+      preLoaderRoute: typeof BookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -82,24 +368,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/packages/$slug': {
+      id: '/packages/$slug'
+      path: '/$slug'
+      fullPath: '/packages/$slug'
+      preLoaderRoute: typeof PackagesSlugRouteImport
+      parentRoute: typeof PackagesRoute
+    }
+    '/destinations/$slug': {
+      id: '/destinations/$slug'
+      path: '/$slug'
+      fullPath: '/destinations/$slug'
+      preLoaderRoute: typeof DestinationsSlugRouteImport
+      parentRoute: typeof DestinationsRoute
+    }
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
+      parentRoute: typeof BlogsRoute
+    }
   }
 }
 
+interface BlogsRouteChildren {
+  BlogsSlugRoute: typeof BlogsSlugRoute
+}
+
+const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsSlugRoute: BlogsSlugRoute,
+}
+
+const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
+
+interface DestinationsRouteChildren {
+  DestinationsSlugRoute: typeof DestinationsSlugRoute
+}
+
+const DestinationsRouteChildren: DestinationsRouteChildren = {
+  DestinationsSlugRoute: DestinationsSlugRoute,
+}
+
+const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
+  DestinationsRouteChildren,
+)
+
+interface PackagesRouteChildren {
+  PackagesSlugRoute: typeof PackagesSlugRoute
+}
+
+const PackagesRouteChildren: PackagesRouteChildren = {
+  PackagesSlugRoute: PackagesSlugRoute,
+}
+
+const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
+  PackagesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogsRoute: BlogsRouteWithChildren,
+  BookingRoute: BookingRoute,
+  BookingsRoute: BookingsRoute,
+  ContactRoute: ContactRoute,
   DesignSystemRoute: DesignSystemRoute,
+  DestinationsRoute: DestinationsRouteWithChildren,
+  FaqRoute: FaqRoute,
+  NotificationsRoute: NotificationsRoute,
+  PackagesRoute: PackagesRouteWithChildren,
+  ProfileRoute: ProfileRoute,
+  SearchRoute: SearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WishlistRoute: WishlistRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
