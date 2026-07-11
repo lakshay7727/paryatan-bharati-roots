@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", to: "/" as const },
+  { label: "AI Planner", to: "/ai-planner" as const },
   { label: "Destinations", to: "/destinations" as const },
   { label: "Packages", to: "/packages" as const },
   { label: "Blogs", to: "/blogs" as const },
@@ -115,8 +116,8 @@ export function SiteHeader({ transparentOnTop = false }: SiteHeaderProps) {
             </IconAction>
           </div>
 
-          <Button variant="hero" size="default" className="ml-2 hidden md:inline-flex">
-            Plan My Trip
+          <Button asChild variant="hero" size="default" className="ml-2 hidden md:inline-flex">
+            <Link to="/ai-planner">Plan My Trip</Link>
           </Button>
 
           <Sheet>
@@ -147,8 +148,8 @@ export function SiteHeader({ transparentOnTop = false }: SiteHeaderProps) {
                     {l.label}
                   </Link>
                 ))}
-                <Button variant="hero" className="mt-4">
-                  Plan My Trip
+                <Button asChild variant="hero" className="mt-4">
+                  <Link to="/ai-planner">Plan My Trip</Link>
                 </Button>
               </nav>
             </SheetContent>

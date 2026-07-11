@@ -22,11 +22,18 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as AiPlannerRouteImport } from './routes/ai-planner'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as ReviewsNewRouteImport } from './routes/reviews.new'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
+import { Route as CancelIdRouteImport } from './routes/cancel.$id'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as AiPlannerProcessingRouteImport } from './routes/ai-planner.processing'
+import { Route as AiPlannerPreferencesRouteImport } from './routes/ai-planner.preferences'
+import { Route as AiPlannerItineraryRouteImport } from './routes/ai-planner.itinerary'
 
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
@@ -93,6 +100,11 @@ const BlogsRoute = BlogsRouteImport.update({
   path: '/blogs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiPlannerRoute = AiPlannerRouteImport.update({
+  id: '/ai-planner',
+  path: '/ai-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -101,6 +113,16 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TripsIdRoute = TripsIdRouteImport.update({
+  id: '/trips/$id',
+  path: '/trips/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsNewRoute = ReviewsNewRouteImport.update({
+  id: '/reviews/new',
+  path: '/reviews/new',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesSlugRoute = PackagesSlugRouteImport.update({
@@ -113,15 +135,36 @@ const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => DestinationsRoute,
 } as any)
+const CancelIdRoute = CancelIdRouteImport.update({
+  id: '/cancel/$id',
+  path: '/cancel/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogsSlugRoute = BlogsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogsRoute,
 } as any)
+const AiPlannerProcessingRoute = AiPlannerProcessingRouteImport.update({
+  id: '/processing',
+  path: '/processing',
+  getParentRoute: () => AiPlannerRoute,
+} as any)
+const AiPlannerPreferencesRoute = AiPlannerPreferencesRouteImport.update({
+  id: '/preferences',
+  path: '/preferences',
+  getParentRoute: () => AiPlannerRoute,
+} as any)
+const AiPlannerItineraryRoute = AiPlannerItineraryRouteImport.update({
+  id: '/itinerary',
+  path: '/itinerary',
+  getParentRoute: () => AiPlannerRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai-planner': typeof AiPlannerRouteWithChildren
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
@@ -135,13 +178,20 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
+  '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
+  '/ai-planner/processing': typeof AiPlannerProcessingRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/reviews/new': typeof ReviewsNewRoute
+  '/trips/$id': typeof TripsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai-planner': typeof AiPlannerRouteWithChildren
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
@@ -155,14 +205,21 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
+  '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
+  '/ai-planner/processing': typeof AiPlannerProcessingRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/reviews/new': typeof ReviewsNewRoute
+  '/trips/$id': typeof TripsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai-planner': typeof AiPlannerRouteWithChildren
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
@@ -176,15 +233,22 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
+  '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
+  '/ai-planner/processing': typeof AiPlannerProcessingRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/reviews/new': typeof ReviewsNewRoute
+  '/trips/$id': typeof TripsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/ai-planner'
     | '/blogs'
     | '/booking'
     | '/bookings'
@@ -198,13 +262,20 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/ai-planner/itinerary'
+    | '/ai-planner/preferences'
+    | '/ai-planner/processing'
     | '/blogs/$slug'
+    | '/cancel/$id'
     | '/destinations/$slug'
     | '/packages/$slug'
+    | '/reviews/new'
+    | '/trips/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/ai-planner'
     | '/blogs'
     | '/booking'
     | '/bookings'
@@ -218,13 +289,20 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/ai-planner/itinerary'
+    | '/ai-planner/preferences'
+    | '/ai-planner/processing'
     | '/blogs/$slug'
+    | '/cancel/$id'
     | '/destinations/$slug'
     | '/packages/$slug'
+    | '/reviews/new'
+    | '/trips/$id'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/ai-planner'
     | '/blogs'
     | '/booking'
     | '/bookings'
@@ -238,14 +316,21 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/ai-planner/itinerary'
+    | '/ai-planner/preferences'
+    | '/ai-planner/processing'
     | '/blogs/$slug'
+    | '/cancel/$id'
     | '/destinations/$slug'
     | '/packages/$slug'
+    | '/reviews/new'
+    | '/trips/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AiPlannerRoute: typeof AiPlannerRouteWithChildren
   BlogsRoute: typeof BlogsRouteWithChildren
   BookingRoute: typeof BookingRoute
   BookingsRoute: typeof BookingsRoute
@@ -259,6 +344,9 @@ export interface RootRouteChildren {
   SearchRoute: typeof SearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WishlistRoute: typeof WishlistRoute
+  CancelIdRoute: typeof CancelIdRoute
+  ReviewsNewRoute: typeof ReviewsNewRoute
+  TripsIdRoute: typeof TripsIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -354,6 +442,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-planner': {
+      id: '/ai-planner'
+      path: '/ai-planner'
+      fullPath: '/ai-planner'
+      preLoaderRoute: typeof AiPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -366,6 +461,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trips/$id': {
+      id: '/trips/$id'
+      path: '/trips/$id'
+      fullPath: '/trips/$id'
+      preLoaderRoute: typeof TripsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews/new': {
+      id: '/reviews/new'
+      path: '/reviews/new'
+      fullPath: '/reviews/new'
+      preLoaderRoute: typeof ReviewsNewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages/$slug': {
@@ -382,6 +491,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DestinationsSlugRouteImport
       parentRoute: typeof DestinationsRoute
     }
+    '/cancel/$id': {
+      id: '/cancel/$id'
+      path: '/cancel/$id'
+      fullPath: '/cancel/$id'
+      preLoaderRoute: typeof CancelIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blogs/$slug': {
       id: '/blogs/$slug'
       path: '/$slug'
@@ -389,8 +505,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
     }
+    '/ai-planner/processing': {
+      id: '/ai-planner/processing'
+      path: '/processing'
+      fullPath: '/ai-planner/processing'
+      preLoaderRoute: typeof AiPlannerProcessingRouteImport
+      parentRoute: typeof AiPlannerRoute
+    }
+    '/ai-planner/preferences': {
+      id: '/ai-planner/preferences'
+      path: '/preferences'
+      fullPath: '/ai-planner/preferences'
+      preLoaderRoute: typeof AiPlannerPreferencesRouteImport
+      parentRoute: typeof AiPlannerRoute
+    }
+    '/ai-planner/itinerary': {
+      id: '/ai-planner/itinerary'
+      path: '/itinerary'
+      fullPath: '/ai-planner/itinerary'
+      preLoaderRoute: typeof AiPlannerItineraryRouteImport
+      parentRoute: typeof AiPlannerRoute
+    }
   }
 }
+
+interface AiPlannerRouteChildren {
+  AiPlannerItineraryRoute: typeof AiPlannerItineraryRoute
+  AiPlannerPreferencesRoute: typeof AiPlannerPreferencesRoute
+  AiPlannerProcessingRoute: typeof AiPlannerProcessingRoute
+}
+
+const AiPlannerRouteChildren: AiPlannerRouteChildren = {
+  AiPlannerItineraryRoute: AiPlannerItineraryRoute,
+  AiPlannerPreferencesRoute: AiPlannerPreferencesRoute,
+  AiPlannerProcessingRoute: AiPlannerProcessingRoute,
+}
+
+const AiPlannerRouteWithChildren = AiPlannerRoute._addFileChildren(
+  AiPlannerRouteChildren,
+)
 
 interface BlogsRouteChildren {
   BlogsSlugRoute: typeof BlogsSlugRoute
@@ -429,6 +582,7 @@ const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AiPlannerRoute: AiPlannerRouteWithChildren,
   BlogsRoute: BlogsRouteWithChildren,
   BookingRoute: BookingRoute,
   BookingsRoute: BookingsRoute,
@@ -442,6 +596,9 @@ const rootRouteChildren: RootRouteChildren = {
   SearchRoute: SearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WishlistRoute: WishlistRoute,
+  CancelIdRoute: CancelIdRoute,
+  ReviewsNewRoute: ReviewsNewRoute,
+  TripsIdRoute: TripsIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
