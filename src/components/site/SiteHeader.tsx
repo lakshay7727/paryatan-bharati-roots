@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", to: "/" as const },
+  { label: "AI Planner", to: "/ai-planner" as const },
   { label: "Destinations", to: "/destinations" as const },
   { label: "Packages", to: "/packages" as const },
   { label: "Blogs", to: "/blogs" as const },
