@@ -23,8 +23,10 @@ import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AiPlannerRouteImport } from './routes/ai-planner'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as ReviewsNewRouteImport } from './routes/reviews.new'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
@@ -105,6 +107,11 @@ const AiPlannerRoute = AiPlannerRouteImport.update({
   path: '/ai-planner',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -114,6 +121,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
 } as any)
 const TripsIdRoute = TripsIdRouteImport.update({
   id: '/trips/$id',
@@ -164,6 +176,7 @@ const AiPlannerItineraryRoute = AiPlannerItineraryRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
   '/ai-planner': typeof AiPlannerRouteWithChildren
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
@@ -187,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/packages/$slug': typeof PackagesSlugRoute
   '/reviews/new': typeof ReviewsNewRoute
   '/trips/$id': typeof TripsIdRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -214,11 +228,13 @@ export interface FileRoutesByTo {
   '/packages/$slug': typeof PackagesSlugRoute
   '/reviews/new': typeof ReviewsNewRoute
   '/trips/$id': typeof TripsIdRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
   '/ai-planner': typeof AiPlannerRouteWithChildren
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
@@ -242,12 +258,14 @@ export interface FileRoutesById {
   '/packages/$slug': typeof PackagesSlugRoute
   '/reviews/new': typeof ReviewsNewRoute
   '/trips/$id': typeof TripsIdRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/ai-planner'
     | '/blogs'
     | '/booking'
@@ -271,6 +289,7 @@ export interface FileRouteTypes {
     | '/packages/$slug'
     | '/reviews/new'
     | '/trips/$id'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -298,10 +317,12 @@ export interface FileRouteTypes {
     | '/packages/$slug'
     | '/reviews/new'
     | '/trips/$id'
+    | '/admin'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/ai-planner'
     | '/blogs'
     | '/booking'
@@ -325,11 +346,13 @@ export interface FileRouteTypes {
     | '/packages/$slug'
     | '/reviews/new'
     | '/trips/$id'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AiPlannerRoute: typeof AiPlannerRouteWithChildren
   BlogsRoute: typeof BlogsRouteWithChildren
   BookingRoute: typeof BookingRoute
@@ -449,6 +472,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiPlannerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -462,6 +492,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/trips/$id': {
       id: '/trips/$id'
@@ -529,6 +566,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface AiPlannerRouteChildren {
   AiPlannerItineraryRoute: typeof AiPlannerItineraryRoute
   AiPlannerPreferencesRoute: typeof AiPlannerPreferencesRoute
@@ -582,6 +629,7 @@ const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRouteWithChildren,
   AiPlannerRoute: AiPlannerRouteWithChildren,
   BlogsRoute: BlogsRouteWithChildren,
   BookingRoute: BookingRoute,
