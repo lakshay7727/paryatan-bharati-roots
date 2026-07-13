@@ -20,6 +20,7 @@ const navLinks = [
   { label: "About", to: "/about" as const },
   { label: "FAQ", to: "/faq" as const },
   { label: "Contact", to: "/contact" as const },
+  { label: "Admin", to: "/admin" as const },
 ];
 
 interface SiteHeaderProps {
