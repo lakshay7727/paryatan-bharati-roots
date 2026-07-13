@@ -41,14 +41,20 @@ import { Route as AdminTrainingRouteImport } from './routes/admin.training'
 import { Route as AdminTemplesRouteImport } from './routes/admin.temples'
 import { Route as AdminStudentsRouteImport } from './routes/admin.students'
 import { Route as AdminSportsRouteImport } from './routes/admin.sports'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminSchemesRouteImport } from './routes/admin.schemes'
+import { Route as AdminReviewsRouteImport } from './routes/admin.reviews'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
 import { Route as AdminPackagesRouteImport } from './routes/admin.packages'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminHeritageRouteImport } from './routes/admin.heritage'
+import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
 import { Route as AdminFoodRouteImport } from './routes/admin.food'
 import { Route as AdminDestinationsRouteImport } from './routes/admin.destinations'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminBlogsRouteImport } from './routes/admin.blogs'
 import { Route as AdminBankingRouteImport } from './routes/admin.banking'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
@@ -210,9 +216,24 @@ const AdminSportsRoute = AdminSportsRouteImport.update({
   path: '/sports',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminSchemesRoute = AdminSchemesRouteImport.update({
   id: '/schemes',
   path: '/schemes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReviewsRoute = AdminReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminPackagesRoute = AdminPackagesRouteImport.update({
@@ -220,9 +241,19 @@ const AdminPackagesRoute = AdminPackagesRouteImport.update({
   path: '/packages',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminHeritageRoute = AdminHeritageRouteImport.update({
   id: '/heritage',
   path: '/heritage',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminGalleryRoute = AdminGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminFoodRoute = AdminFoodRouteImport.update({
@@ -250,6 +281,11 @@ const AdminBankingRoute = AdminBankingRouteImport.update({
   path: '/banking',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -269,14 +305,20 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banking': typeof AdminBankingRoute
   '/admin/blogs': typeof AdminBlogsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/destinations': typeof AdminDestinationsRoute
   '/admin/food': typeof AdminFoodRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/heritage': typeof AdminHeritageRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/packages': typeof AdminPackagesRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/admin/schemes': typeof AdminSchemesRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/sports': typeof AdminSportsRoute
   '/admin/students': typeof AdminStudentsRoute
   '/admin/temples': typeof AdminTemplesRoute
@@ -310,14 +352,20 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banking': typeof AdminBankingRoute
   '/admin/blogs': typeof AdminBlogsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/destinations': typeof AdminDestinationsRoute
   '/admin/food': typeof AdminFoodRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/heritage': typeof AdminHeritageRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/packages': typeof AdminPackagesRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/admin/schemes': typeof AdminSchemesRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/sports': typeof AdminSportsRoute
   '/admin/students': typeof AdminStudentsRoute
   '/admin/temples': typeof AdminTemplesRoute
@@ -353,14 +401,20 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banking': typeof AdminBankingRoute
   '/admin/blogs': typeof AdminBlogsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/destinations': typeof AdminDestinationsRoute
   '/admin/food': typeof AdminFoodRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/heritage': typeof AdminHeritageRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/packages': typeof AdminPackagesRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/admin/schemes': typeof AdminSchemesRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/sports': typeof AdminSportsRoute
   '/admin/students': typeof AdminStudentsRoute
   '/admin/temples': typeof AdminTemplesRoute
@@ -397,14 +451,20 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/analytics'
     | '/admin/banking'
     | '/admin/blogs'
     | '/admin/bookings'
     | '/admin/destinations'
     | '/admin/food'
+    | '/admin/gallery'
     | '/admin/heritage'
+    | '/admin/notifications'
     | '/admin/packages'
+    | '/admin/reports'
+    | '/admin/reviews'
     | '/admin/schemes'
+    | '/admin/settings'
     | '/admin/sports'
     | '/admin/students'
     | '/admin/temples'
@@ -438,14 +498,20 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/analytics'
     | '/admin/banking'
     | '/admin/blogs'
     | '/admin/bookings'
     | '/admin/destinations'
     | '/admin/food'
+    | '/admin/gallery'
     | '/admin/heritage'
+    | '/admin/notifications'
     | '/admin/packages'
+    | '/admin/reports'
+    | '/admin/reviews'
     | '/admin/schemes'
+    | '/admin/settings'
     | '/admin/sports'
     | '/admin/students'
     | '/admin/temples'
@@ -480,14 +546,20 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/analytics'
     | '/admin/banking'
     | '/admin/blogs'
     | '/admin/bookings'
     | '/admin/destinations'
     | '/admin/food'
+    | '/admin/gallery'
     | '/admin/heritage'
+    | '/admin/notifications'
     | '/admin/packages'
+    | '/admin/reports'
+    | '/admin/reviews'
     | '/admin/schemes'
+    | '/admin/settings'
     | '/admin/sports'
     | '/admin/students'
     | '/admin/temples'
@@ -754,11 +826,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSportsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/schemes': {
       id: '/admin/schemes'
       path: '/schemes'
       fullPath: '/admin/schemes'
       preLoaderRoute: typeof AdminSchemesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reviews': {
+      id: '/admin/reviews'
+      path: '/reviews'
+      fullPath: '/admin/reviews'
+      preLoaderRoute: typeof AdminReviewsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/packages': {
@@ -768,11 +861,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPackagesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/heritage': {
       id: '/admin/heritage'
       path: '/heritage'
       fullPath: '/admin/heritage'
       preLoaderRoute: typeof AdminHeritageRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/gallery': {
+      id: '/admin/gallery'
+      path: '/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminGalleryRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/food': {
@@ -810,18 +917,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBankingRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminBankingRoute: typeof AdminBankingRoute
   AdminBlogsRoute: typeof AdminBlogsRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminDestinationsRoute: typeof AdminDestinationsRoute
   AdminFoodRoute: typeof AdminFoodRoute
+  AdminGalleryRoute: typeof AdminGalleryRoute
   AdminHeritageRoute: typeof AdminHeritageRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminPackagesRoute: typeof AdminPackagesRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminReviewsRoute: typeof AdminReviewsRoute
   AdminSchemesRoute: typeof AdminSchemesRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
   AdminSportsRoute: typeof AdminSportsRoute
   AdminStudentsRoute: typeof AdminStudentsRoute
   AdminTemplesRoute: typeof AdminTemplesRoute
@@ -831,14 +951,20 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminBankingRoute: AdminBankingRoute,
   AdminBlogsRoute: AdminBlogsRoute,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminDestinationsRoute: AdminDestinationsRoute,
   AdminFoodRoute: AdminFoodRoute,
+  AdminGalleryRoute: AdminGalleryRoute,
   AdminHeritageRoute: AdminHeritageRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
   AdminPackagesRoute: AdminPackagesRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminReviewsRoute: AdminReviewsRoute,
   AdminSchemesRoute: AdminSchemesRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
   AdminSportsRoute: AdminSportsRoute,
   AdminStudentsRoute: AdminStudentsRoute,
   AdminTemplesRoute: AdminTemplesRoute,
