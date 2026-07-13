@@ -36,6 +36,10 @@ import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as AiPlannerProcessingRouteImport } from './routes/ai-planner.processing'
 import { Route as AiPlannerPreferencesRouteImport } from './routes/ai-planner.preferences'
 import { Route as AiPlannerItineraryRouteImport } from './routes/ai-planner.itinerary'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminPackagesRouteImport } from './routes/admin.packages'
+import { Route as AdminDestinationsRouteImport } from './routes/admin.destinations'
+import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
@@ -172,6 +176,26 @@ const AiPlannerItineraryRoute = AiPlannerItineraryRouteImport.update({
   path: '/itinerary',
   getParentRoute: () => AiPlannerRoute,
 } as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPackagesRoute = AdminPackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDestinationsRoute = AdminDestinationsRouteImport.update({
+  id: '/destinations',
+  path: '/destinations',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBookingsRoute = AdminBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -191,6 +215,10 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/destinations': typeof AdminDestinationsRoute
+  '/admin/packages': typeof AdminPackagesRoute
+  '/admin/users': typeof AdminUsersRoute
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
   '/ai-planner/processing': typeof AiPlannerProcessingRoute
@@ -219,6 +247,10 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/destinations': typeof AdminDestinationsRoute
+  '/admin/packages': typeof AdminPackagesRoute
+  '/admin/users': typeof AdminUsersRoute
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
   '/ai-planner/processing': typeof AiPlannerProcessingRoute
@@ -249,6 +281,10 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/destinations': typeof AdminDestinationsRoute
+  '/admin/packages': typeof AdminPackagesRoute
+  '/admin/users': typeof AdminUsersRoute
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
   '/ai-planner/processing': typeof AiPlannerProcessingRoute
@@ -280,6 +316,10 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/bookings'
+    | '/admin/destinations'
+    | '/admin/packages'
+    | '/admin/users'
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
     | '/ai-planner/processing'
@@ -308,6 +348,10 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/bookings'
+    | '/admin/destinations'
+    | '/admin/packages'
+    | '/admin/users'
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
     | '/ai-planner/processing'
@@ -337,6 +381,10 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/bookings'
+    | '/admin/destinations'
+    | '/admin/packages'
+    | '/admin/users'
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
     | '/ai-planner/processing'
@@ -563,14 +611,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiPlannerItineraryRouteImport
       parentRoute: typeof AiPlannerRoute
     }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/packages': {
+      id: '/admin/packages'
+      path: '/packages'
+      fullPath: '/admin/packages'
+      preLoaderRoute: typeof AdminPackagesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/destinations': {
+      id: '/admin/destinations'
+      path: '/destinations'
+      fullPath: '/admin/destinations'
+      preLoaderRoute: typeof AdminDestinationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/bookings': {
+      id: '/admin/bookings'
+      path: '/bookings'
+      fullPath: '/admin/bookings'
+      preLoaderRoute: typeof AdminBookingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminDestinationsRoute: typeof AdminDestinationsRoute
+  AdminPackagesRoute: typeof AdminPackagesRoute
+  AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminBookingsRoute: AdminBookingsRoute,
+  AdminDestinationsRoute: AdminDestinationsRoute,
+  AdminPackagesRoute: AdminPackagesRoute,
+  AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
