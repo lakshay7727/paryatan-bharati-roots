@@ -37,9 +37,18 @@ import { Route as AiPlannerProcessingRouteImport } from './routes/ai-planner.pro
 import { Route as AiPlannerPreferencesRouteImport } from './routes/ai-planner.preferences'
 import { Route as AiPlannerItineraryRouteImport } from './routes/ai-planner.itinerary'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminTrainingRouteImport } from './routes/admin.training'
+import { Route as AdminTemplesRouteImport } from './routes/admin.temples'
+import { Route as AdminStudentsRouteImport } from './routes/admin.students'
+import { Route as AdminSportsRouteImport } from './routes/admin.sports'
+import { Route as AdminSchemesRouteImport } from './routes/admin.schemes'
 import { Route as AdminPackagesRouteImport } from './routes/admin.packages'
+import { Route as AdminHeritageRouteImport } from './routes/admin.heritage'
+import { Route as AdminFoodRouteImport } from './routes/admin.food'
 import { Route as AdminDestinationsRouteImport } from './routes/admin.destinations'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
+import { Route as AdminBlogsRouteImport } from './routes/admin.blogs'
+import { Route as AdminBankingRouteImport } from './routes/admin.banking'
 
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
@@ -181,9 +190,44 @@ const AdminUsersRoute = AdminUsersRouteImport.update({
   path: '/users',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminTrainingRoute = AdminTrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTemplesRoute = AdminTemplesRouteImport.update({
+  id: '/temples',
+  path: '/temples',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStudentsRoute = AdminStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSportsRoute = AdminSportsRouteImport.update({
+  id: '/sports',
+  path: '/sports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSchemesRoute = AdminSchemesRouteImport.update({
+  id: '/schemes',
+  path: '/schemes',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminPackagesRoute = AdminPackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminHeritageRoute = AdminHeritageRouteImport.update({
+  id: '/heritage',
+  path: '/heritage',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFoodRoute = AdminFoodRouteImport.update({
+  id: '/food',
+  path: '/food',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminDestinationsRoute = AdminDestinationsRouteImport.update({
@@ -194,6 +238,16 @@ const AdminDestinationsRoute = AdminDestinationsRouteImport.update({
 const AdminBookingsRoute = AdminBookingsRouteImport.update({
   id: '/bookings',
   path: '/bookings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBlogsRoute = AdminBlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBankingRoute = AdminBankingRouteImport.update({
+  id: '/banking',
+  path: '/banking',
   getParentRoute: () => AdminRoute,
 } as any)
 
@@ -215,9 +269,18 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/banking': typeof AdminBankingRoute
+  '/admin/blogs': typeof AdminBlogsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/destinations': typeof AdminDestinationsRoute
+  '/admin/food': typeof AdminFoodRoute
+  '/admin/heritage': typeof AdminHeritageRoute
   '/admin/packages': typeof AdminPackagesRoute
+  '/admin/schemes': typeof AdminSchemesRoute
+  '/admin/sports': typeof AdminSportsRoute
+  '/admin/students': typeof AdminStudentsRoute
+  '/admin/temples': typeof AdminTemplesRoute
+  '/admin/training': typeof AdminTrainingRoute
   '/admin/users': typeof AdminUsersRoute
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
@@ -247,9 +310,18 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/banking': typeof AdminBankingRoute
+  '/admin/blogs': typeof AdminBlogsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/destinations': typeof AdminDestinationsRoute
+  '/admin/food': typeof AdminFoodRoute
+  '/admin/heritage': typeof AdminHeritageRoute
   '/admin/packages': typeof AdminPackagesRoute
+  '/admin/schemes': typeof AdminSchemesRoute
+  '/admin/sports': typeof AdminSportsRoute
+  '/admin/students': typeof AdminStudentsRoute
+  '/admin/temples': typeof AdminTemplesRoute
+  '/admin/training': typeof AdminTrainingRoute
   '/admin/users': typeof AdminUsersRoute
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
@@ -281,9 +353,18 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wishlist': typeof WishlistRoute
+  '/admin/banking': typeof AdminBankingRoute
+  '/admin/blogs': typeof AdminBlogsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/destinations': typeof AdminDestinationsRoute
+  '/admin/food': typeof AdminFoodRoute
+  '/admin/heritage': typeof AdminHeritageRoute
   '/admin/packages': typeof AdminPackagesRoute
+  '/admin/schemes': typeof AdminSchemesRoute
+  '/admin/sports': typeof AdminSportsRoute
+  '/admin/students': typeof AdminStudentsRoute
+  '/admin/temples': typeof AdminTemplesRoute
+  '/admin/training': typeof AdminTrainingRoute
   '/admin/users': typeof AdminUsersRoute
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
@@ -316,9 +397,18 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/banking'
+    | '/admin/blogs'
     | '/admin/bookings'
     | '/admin/destinations'
+    | '/admin/food'
+    | '/admin/heritage'
     | '/admin/packages'
+    | '/admin/schemes'
+    | '/admin/sports'
+    | '/admin/students'
+    | '/admin/temples'
+    | '/admin/training'
     | '/admin/users'
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
@@ -348,9 +438,18 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/banking'
+    | '/admin/blogs'
     | '/admin/bookings'
     | '/admin/destinations'
+    | '/admin/food'
+    | '/admin/heritage'
     | '/admin/packages'
+    | '/admin/schemes'
+    | '/admin/sports'
+    | '/admin/students'
+    | '/admin/temples'
+    | '/admin/training'
     | '/admin/users'
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
@@ -381,9 +480,18 @@ export interface FileRouteTypes {
     | '/search'
     | '/sitemap.xml'
     | '/wishlist'
+    | '/admin/banking'
+    | '/admin/blogs'
     | '/admin/bookings'
     | '/admin/destinations'
+    | '/admin/food'
+    | '/admin/heritage'
     | '/admin/packages'
+    | '/admin/schemes'
+    | '/admin/sports'
+    | '/admin/students'
+    | '/admin/temples'
+    | '/admin/training'
     | '/admin/users'
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
@@ -618,11 +726,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminUsersRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/training': {
+      id: '/admin/training'
+      path: '/training'
+      fullPath: '/admin/training'
+      preLoaderRoute: typeof AdminTrainingRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/temples': {
+      id: '/admin/temples'
+      path: '/temples'
+      fullPath: '/admin/temples'
+      preLoaderRoute: typeof AdminTemplesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/students': {
+      id: '/admin/students'
+      path: '/students'
+      fullPath: '/admin/students'
+      preLoaderRoute: typeof AdminStudentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/sports': {
+      id: '/admin/sports'
+      path: '/sports'
+      fullPath: '/admin/sports'
+      preLoaderRoute: typeof AdminSportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/schemes': {
+      id: '/admin/schemes'
+      path: '/schemes'
+      fullPath: '/admin/schemes'
+      preLoaderRoute: typeof AdminSchemesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/packages': {
       id: '/admin/packages'
       path: '/packages'
       fullPath: '/admin/packages'
       preLoaderRoute: typeof AdminPackagesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/heritage': {
+      id: '/admin/heritage'
+      path: '/heritage'
+      fullPath: '/admin/heritage'
+      preLoaderRoute: typeof AdminHeritageRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/food': {
+      id: '/admin/food'
+      path: '/food'
+      fullPath: '/admin/food'
+      preLoaderRoute: typeof AdminFoodRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/destinations': {
@@ -639,21 +796,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBookingsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/blogs': {
+      id: '/admin/blogs'
+      path: '/blogs'
+      fullPath: '/admin/blogs'
+      preLoaderRoute: typeof AdminBlogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/banking': {
+      id: '/admin/banking'
+      path: '/banking'
+      fullPath: '/admin/banking'
+      preLoaderRoute: typeof AdminBankingRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminBankingRoute: typeof AdminBankingRoute
+  AdminBlogsRoute: typeof AdminBlogsRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminDestinationsRoute: typeof AdminDestinationsRoute
+  AdminFoodRoute: typeof AdminFoodRoute
+  AdminHeritageRoute: typeof AdminHeritageRoute
   AdminPackagesRoute: typeof AdminPackagesRoute
+  AdminSchemesRoute: typeof AdminSchemesRoute
+  AdminSportsRoute: typeof AdminSportsRoute
+  AdminStudentsRoute: typeof AdminStudentsRoute
+  AdminTemplesRoute: typeof AdminTemplesRoute
+  AdminTrainingRoute: typeof AdminTrainingRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminBankingRoute: AdminBankingRoute,
+  AdminBlogsRoute: AdminBlogsRoute,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminDestinationsRoute: AdminDestinationsRoute,
+  AdminFoodRoute: AdminFoodRoute,
+  AdminHeritageRoute: AdminHeritageRoute,
   AdminPackagesRoute: AdminPackagesRoute,
+  AdminSchemesRoute: AdminSchemesRoute,
+  AdminSportsRoute: AdminSportsRoute,
+  AdminStudentsRoute: AdminStudentsRoute,
+  AdminTemplesRoute: AdminTemplesRoute,
+  AdminTrainingRoute: AdminTrainingRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
