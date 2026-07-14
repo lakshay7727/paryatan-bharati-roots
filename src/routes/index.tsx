@@ -78,6 +78,7 @@ function Home() {
       <main>
         <Hero />
         <Stats />
+        <QuickAccess />
         <FeaturedDestinations />
         <GovernmentSchemes />
         <StudentTourism />
@@ -126,15 +127,16 @@ function Hero() {
               and told with the depth India deserves.
             </p>
             <div className="animate-fade-up mt-8 flex flex-wrap gap-3">
-              <Button variant="hero" size="xl">
-                Explore India
+              <Button asChild variant="hero" size="xl">
+                <Link to="/destinations">Explore India</Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="xl"
                 className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:border-primary-foreground hover:bg-white/10 hover:text-primary-foreground"
               >
-                <Sparkles className="h-4 w-4" /> Plan with AI
+                <Link to="/ai-planner"><Sparkles className="h-4 w-4" /> Plan with AI</Link>
               </Button>
             </div>
           </div>
