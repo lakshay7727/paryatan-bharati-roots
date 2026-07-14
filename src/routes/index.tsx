@@ -30,7 +30,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Award, Bell, Cog, GraduationCap, LayoutDashboard, LogIn, UserPlus } from "lucide-react";
+import { Bell, Cog, LayoutDashboard, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
