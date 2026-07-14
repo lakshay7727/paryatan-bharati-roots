@@ -16,10 +16,13 @@ const navLinks = [
   { label: "AI Planner", to: "/ai-planner" as const },
   { label: "Destinations", to: "/destinations" as const },
   { label: "Packages", to: "/packages" as const },
+  { label: "Training", to: "/training" as const },
+  { label: "Rewards", to: "/rewards" as const },
   { label: "Blogs", to: "/blogs" as const },
   { label: "About", to: "/about" as const },
   { label: "FAQ", to: "/faq" as const },
   { label: "Contact", to: "/contact" as const },
+  { label: "Dashboard", to: "/dashboard" as const },
   { label: "Admin", to: "/admin" as const },
 ];
 

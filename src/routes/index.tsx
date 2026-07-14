@@ -1014,3 +1014,56 @@ function SectionHeader({
     </div>
   );
 }
+
+/* ─────────────── QUICK ACCESS HUB ─────────────── */
+function QuickAccess() {
+  const tiles = [
+    { to: "/ai-planner", icon: Sparkles, title: "AI Trip Planner", desc: "Personalised itineraries in seconds.", tone: "royal" },
+    { to: "/destinations", icon: MapPin, title: "Destinations", desc: "All 28 states, verified.", tone: "emerald" },
+    { to: "/packages", icon: PlaneTakeoff, title: "Packages", desc: "Curated tours from ₹5,999.", tone: "sunset" },
+    { to: "/bookings", icon: CalendarDays, title: "My Bookings", desc: "Tickets, tracking & invoices.", tone: "royal" },
+    { to: "/wishlist", icon: Heart, title: "Wishlist", desc: "Save & compare journeys.", tone: "sunset" },
+    { to: "/training", icon: GraduationCap, title: "Training Center", desc: "Learn & earn certificates.", tone: "emerald" },
+    { to: "/certificates", icon: Award, title: "Certificates", desc: "Verified digital credentials.", tone: "royal" },
+    { to: "/rewards", icon: TrendingUp, title: "Rewards", desc: "Points, tiers & perks.", tone: "sunset" },
+    { to: "/notifications", icon: Bell, title: "Notifications", desc: "Alerts & offers.", tone: "emerald" },
+    { to: "/dashboard", icon: LayoutDashboard, title: "Dashboard", desc: "Your workspace.", tone: "royal" },
+    { to: "/profile", icon: Users, title: "Profile", desc: "Preferences & documents.", tone: "sunset" },
+    { to: "/settings", icon: Cog, title: "Settings", desc: "Privacy & language.", tone: "emerald" },
+  ];
+  const tone = (t: string) =>
+    t === "royal" ? "bg-royal-100 text-primary" : t === "emerald" ? "bg-emerald-100 text-emerald-700" : "bg-sunset-100 text-accent";
+  return (
+    <section className="border-b border-border bg-sand-warm/40 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          eyebrow="Explore everything"
+          title="Your journey, one tap away"
+          subtitle="Every feature of Paryatan Bharati — planning, booking, learning and rewards — in one place."
+          action={
+            <div className="flex flex-wrap gap-2">
+              <Button asChild variant="outline"><Link to="/auth/login"><LogIn className="h-4 w-4" /> Sign in</Link></Button>
+              <Button asChild variant="hero"><Link to="/auth/signup"><UserPlus className="h-4 w-4" /> Sign up</Link></Button>
+            </div>
+          }
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {tiles.map((t) => (
+            <Link key={t.to} to={t.to} className="surface-card hover-lift group flex items-start gap-4 p-5">
+              <span className={"grid h-11 w-11 shrink-0 place-items-center rounded-md " + tone(t.tone)}>
+                <t.icon className="h-5 w-5" />
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-h4 text-foreground">{t.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{t.desc}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary group-hover:underline">
+                  Open <ChevronRight className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
