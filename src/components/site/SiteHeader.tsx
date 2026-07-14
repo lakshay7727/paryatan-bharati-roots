@@ -106,21 +106,24 @@ export function SiteHeader({ transparentOnTop = false }: SiteHeaderProps) {
           </nav>
 
           <div className="hidden items-center gap-1 lg:flex">
-            <IconAction transparent={transparent} label="Search">
+            <IconAction transparent={transparent} label="Search" to="/search">
               <Search className="h-5 w-5" />
             </IconAction>
-            <IconAction transparent={transparent} label="Wishlist">
+            <IconAction transparent={transparent} label="Wishlist" to="/wishlist">
               <Heart className="h-5 w-5" />
             </IconAction>
-            <IconAction transparent={transparent} label="Notifications">
+            <IconAction transparent={transparent} label="Notifications" to="/notifications">
               <Bell className="h-5 w-5" />
             </IconAction>
-            <IconAction transparent={transparent} label="Profile">
+            <IconAction transparent={transparent} label="Profile" to="/profile">
               <User className="h-5 w-5" />
             </IconAction>
           </div>
 
-          <Button asChild variant="hero" size="default" className="ml-2 hidden md:inline-flex">
+          <Button asChild variant="ghost" size="sm" className={cn("ml-2 hidden md:inline-flex", transparent && "text-primary-foreground hover:bg-white/10 hover:text-primary-foreground")}>
+            <Link to="/auth/login">Sign in</Link>
+          </Button>
+          <Button asChild variant="hero" size="default" className="ml-1 hidden md:inline-flex">
             <Link to="/ai-planner">Plan My Trip</Link>
           </Button>
 
@@ -168,23 +171,28 @@ function IconAction({
   children,
   label,
   transparent,
+  to,
 }: {
   children: React.ReactNode;
   label: string;
   transparent: boolean;
+  to?: string;
 }) {
+  const cls = cn(
+    "h-10 w-10",
+    transparent
+      ? "text-primary-foreground/90 hover:bg-white/10 hover:text-primary-foreground"
+      : "text-muted-foreground hover:text-primary",
+  );
+  if (to) {
+    return (
+      <Button asChild variant="ghost" size="icon" aria-label={label} className={cls}>
+        <Link to={to}>{children}</Link>
+      </Button>
+    );
+  }
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      aria-label={label}
-      className={cn(
-        "h-10 w-10",
-        transparent
-          ? "text-primary-foreground/90 hover:bg-white/10 hover:text-primary-foreground"
-          : "text-muted-foreground hover:text-primary",
-      )}
-    >
+    <Button variant="ghost" size="icon" aria-label={label} className={cls}>
       {children}
     </Button>
   );
