@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -33,6 +34,11 @@ import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as CancelIdRouteImport } from './routes/cancel.$id'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as AuthSignupRouteImport } from './routes/auth.signup'
+import { Route as AuthResetRouteImport } from './routes/auth.reset'
+import { Route as AuthOtpRouteImport } from './routes/auth.otp'
+import { Route as AuthLoginRouteImport } from './routes/auth.login'
+import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
 import { Route as AiPlannerProcessingRouteImport } from './routes/ai-planner.processing'
 import { Route as AiPlannerPreferencesRouteImport } from './routes/ai-planner.preferences'
 import { Route as AiPlannerItineraryRouteImport } from './routes/ai-planner.itinerary'
@@ -59,6 +65,11 @@ import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
   path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -175,6 +186,31 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogsRoute,
+} as any)
+const AuthSignupRoute = AuthSignupRouteImport.update({
+  id: '/auth/signup',
+  path: '/auth/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthResetRoute = AuthResetRouteImport.update({
+  id: '/auth/reset',
+  path: '/auth/reset',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthOtpRoute = AuthOtpRouteImport.update({
+  id: '/auth/otp',
+  path: '/auth/otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthForgotRoute = AuthForgotRouteImport.update({
+  id: '/auth/forgot',
+  path: '/auth/forgot',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AiPlannerProcessingRoute = AiPlannerProcessingRouteImport.update({
   id: '/processing',
@@ -304,6 +340,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banking': typeof AdminBankingRoute
@@ -327,6 +364,11 @@ export interface FileRoutesByFullPath {
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
   '/ai-planner/processing': typeof AiPlannerProcessingRoute
+  '/auth/forgot': typeof AuthForgotRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/otp': typeof AuthOtpRoute
+  '/auth/reset': typeof AuthResetRoute
+  '/auth/signup': typeof AuthSignupRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -351,6 +393,7 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banking': typeof AdminBankingRoute
@@ -374,6 +417,11 @@ export interface FileRoutesByTo {
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
   '/ai-planner/processing': typeof AiPlannerProcessingRoute
+  '/auth/forgot': typeof AuthForgotRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/otp': typeof AuthOtpRoute
+  '/auth/reset': typeof AuthResetRoute
+  '/auth/signup': typeof AuthSignupRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -400,6 +448,7 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/banking': typeof AdminBankingRoute
@@ -423,6 +472,11 @@ export interface FileRoutesById {
   '/ai-planner/itinerary': typeof AiPlannerItineraryRoute
   '/ai-planner/preferences': typeof AiPlannerPreferencesRoute
   '/ai-planner/processing': typeof AiPlannerProcessingRoute
+  '/auth/forgot': typeof AuthForgotRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/otp': typeof AuthOtpRoute
+  '/auth/reset': typeof AuthResetRoute
+  '/auth/signup': typeof AuthSignupRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -450,6 +504,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/search'
     | '/sitemap.xml'
+    | '/welcome'
     | '/wishlist'
     | '/admin/analytics'
     | '/admin/banking'
@@ -473,6 +528,11 @@ export interface FileRouteTypes {
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
     | '/ai-planner/processing'
+    | '/auth/forgot'
+    | '/auth/login'
+    | '/auth/otp'
+    | '/auth/reset'
+    | '/auth/signup'
     | '/blogs/$slug'
     | '/cancel/$id'
     | '/destinations/$slug'
@@ -497,6 +557,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/search'
     | '/sitemap.xml'
+    | '/welcome'
     | '/wishlist'
     | '/admin/analytics'
     | '/admin/banking'
@@ -520,6 +581,11 @@ export interface FileRouteTypes {
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
     | '/ai-planner/processing'
+    | '/auth/forgot'
+    | '/auth/login'
+    | '/auth/otp'
+    | '/auth/reset'
+    | '/auth/signup'
     | '/blogs/$slug'
     | '/cancel/$id'
     | '/destinations/$slug'
@@ -545,6 +611,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/search'
     | '/sitemap.xml'
+    | '/welcome'
     | '/wishlist'
     | '/admin/analytics'
     | '/admin/banking'
@@ -568,6 +635,11 @@ export interface FileRouteTypes {
     | '/ai-planner/itinerary'
     | '/ai-planner/preferences'
     | '/ai-planner/processing'
+    | '/auth/forgot'
+    | '/auth/login'
+    | '/auth/otp'
+    | '/auth/reset'
+    | '/auth/signup'
     | '/blogs/$slug'
     | '/cancel/$id'
     | '/destinations/$slug'
@@ -594,7 +666,13 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   SearchRoute: typeof SearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WelcomeRoute: typeof WelcomeRoute
   WishlistRoute: typeof WishlistRoute
+  AuthForgotRoute: typeof AuthForgotRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthOtpRoute: typeof AuthOtpRoute
+  AuthResetRoute: typeof AuthResetRoute
+  AuthSignupRoute: typeof AuthSignupRoute
   CancelIdRoute: typeof CancelIdRoute
   ReviewsNewRoute: typeof ReviewsNewRoute
   TripsIdRoute: typeof TripsIdRoute
@@ -607,6 +685,13 @@ declare module '@tanstack/react-router' {
       path: '/wishlist'
       fullPath: '/wishlist'
       preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -769,6 +854,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/blogs/$slug'
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
+    }
+    '/auth/signup': {
+      id: '/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/auth/signup'
+      preLoaderRoute: typeof AuthSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/reset': {
+      id: '/auth/reset'
+      path: '/auth/reset'
+      fullPath: '/auth/reset'
+      preLoaderRoute: typeof AuthResetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/otp': {
+      id: '/auth/otp'
+      path: '/auth/otp'
+      fullPath: '/auth/otp'
+      preLoaderRoute: typeof AuthOtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/forgot': {
+      id: '/auth/forgot'
+      path: '/auth/forgot'
+      fullPath: '/auth/forgot'
+      preLoaderRoute: typeof AuthForgotRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/ai-planner/processing': {
       id: '/ai-planner/processing'
@@ -1042,7 +1162,13 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   SearchRoute: SearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WelcomeRoute: WelcomeRoute,
   WishlistRoute: WishlistRoute,
+  AuthForgotRoute: AuthForgotRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthOtpRoute: AuthOtpRoute,
+  AuthResetRoute: AuthResetRoute,
+  AuthSignupRoute: AuthSignupRoute,
   CancelIdRoute: CancelIdRoute,
   ReviewsNewRoute: ReviewsNewRoute,
   TripsIdRoute: TripsIdRoute,
@@ -1050,13 +1176,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
