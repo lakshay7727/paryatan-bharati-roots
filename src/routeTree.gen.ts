@@ -11,15 +11,20 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as TrainingRouteImport } from './routes/training'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CertificatesRouteImport } from './routes/certificates'
 import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as BlogsRouteImport } from './routes/blogs'
@@ -72,14 +77,29 @@ const WelcomeRoute = WelcomeRouteImport.update({
   path: '/welcome',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RewardsRoute = RewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileRoute = ProfileRouteImport.update({
@@ -112,9 +132,19 @@ const DesignSystemRoute = DesignSystemRouteImport.update({
   path: '/design-system',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificatesRoute = CertificatesRouteImport.update({
+  id: '/certificates',
+  path: '/certificates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookingsRoute = BookingsRouteImport.update({
@@ -331,15 +361,20 @@ export interface FileRoutesByFullPath {
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
+  '/certificates': typeof CertificatesRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/notifications': typeof NotificationsRoute
   '/packages': typeof PackagesRouteWithChildren
   '/profile': typeof ProfileRoute
+  '/rewards': typeof RewardsRoute
   '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/training': typeof TrainingRoute
   '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -384,15 +419,20 @@ export interface FileRoutesByTo {
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
+  '/certificates': typeof CertificatesRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/notifications': typeof NotificationsRoute
   '/packages': typeof PackagesRouteWithChildren
   '/profile': typeof ProfileRoute
+  '/rewards': typeof RewardsRoute
   '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/training': typeof TrainingRoute
   '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -439,15 +479,20 @@ export interface FileRoutesById {
   '/blogs': typeof BlogsRouteWithChildren
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
+  '/certificates': typeof CertificatesRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/notifications': typeof NotificationsRoute
   '/packages': typeof PackagesRouteWithChildren
   '/profile': typeof ProfileRoute
+  '/rewards': typeof RewardsRoute
   '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/training': typeof TrainingRoute
   '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -495,15 +540,20 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/booking'
     | '/bookings'
+    | '/certificates'
     | '/contact'
+    | '/dashboard'
     | '/design-system'
     | '/destinations'
     | '/faq'
     | '/notifications'
     | '/packages'
     | '/profile'
+    | '/rewards'
     | '/search'
+    | '/settings'
     | '/sitemap.xml'
+    | '/training'
     | '/welcome'
     | '/wishlist'
     | '/admin/analytics'
@@ -548,15 +598,20 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/booking'
     | '/bookings'
+    | '/certificates'
     | '/contact'
+    | '/dashboard'
     | '/design-system'
     | '/destinations'
     | '/faq'
     | '/notifications'
     | '/packages'
     | '/profile'
+    | '/rewards'
     | '/search'
+    | '/settings'
     | '/sitemap.xml'
+    | '/training'
     | '/welcome'
     | '/wishlist'
     | '/admin/analytics'
@@ -602,15 +657,20 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/booking'
     | '/bookings'
+    | '/certificates'
     | '/contact'
+    | '/dashboard'
     | '/design-system'
     | '/destinations'
     | '/faq'
     | '/notifications'
     | '/packages'
     | '/profile'
+    | '/rewards'
     | '/search'
+    | '/settings'
     | '/sitemap.xml'
+    | '/training'
     | '/welcome'
     | '/wishlist'
     | '/admin/analytics'
@@ -657,15 +717,20 @@ export interface RootRouteChildren {
   BlogsRoute: typeof BlogsRouteWithChildren
   BookingRoute: typeof BookingRoute
   BookingsRoute: typeof BookingsRoute
+  CertificatesRoute: typeof CertificatesRoute
   ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
   DesignSystemRoute: typeof DesignSystemRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
   FaqRoute: typeof FaqRoute
   NotificationsRoute: typeof NotificationsRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   ProfileRoute: typeof ProfileRoute
+  RewardsRoute: typeof RewardsRoute
   SearchRoute: typeof SearchRoute
+  SettingsRoute: typeof SettingsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TrainingRoute: typeof TrainingRoute
   WelcomeRoute: typeof WelcomeRoute
   WishlistRoute: typeof WishlistRoute
   AuthForgotRoute: typeof AuthForgotRoute
@@ -694,6 +759,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WelcomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -701,11 +773,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/search': {
       id: '/search'
       path: '/search'
       fullPath: '/search'
       preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rewards': {
+      id: '/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof RewardsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile': {
@@ -750,11 +836,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificates': {
+      id: '/certificates'
+      path: '/certificates'
+      fullPath: '/certificates'
+      preLoaderRoute: typeof CertificatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bookings': {
@@ -1153,15 +1253,20 @@ const rootRouteChildren: RootRouteChildren = {
   BlogsRoute: BlogsRouteWithChildren,
   BookingRoute: BookingRoute,
   BookingsRoute: BookingsRoute,
+  CertificatesRoute: CertificatesRoute,
   ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
   DesignSystemRoute: DesignSystemRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
   FaqRoute: FaqRoute,
   NotificationsRoute: NotificationsRoute,
   PackagesRoute: PackagesRouteWithChildren,
   ProfileRoute: ProfileRoute,
+  RewardsRoute: RewardsRoute,
   SearchRoute: SearchRoute,
+  SettingsRoute: SettingsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TrainingRoute: TrainingRoute,
   WelcomeRoute: WelcomeRoute,
   WishlistRoute: WishlistRoute,
   AuthForgotRoute: AuthForgotRoute,
