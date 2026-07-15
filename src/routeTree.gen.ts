@@ -12,18 +12,31 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as TrainingRouteImport } from './routes/training'
+import { Route as TemplesRouteImport } from './routes/temples'
+import { Route as StudentsRouteImport } from './routes/students'
+import { Route as StudentPortalRouteImport } from './routes/student-portal'
+import { Route as StatesRouteImport } from './routes/states'
+import { Route as SportsRouteImport } from './routes/sports'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as RewardsRouteImport } from './routes/rewards'
+import { Route as RestaurantsRouteImport } from './routes/restaurants'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PilgrimageRouteImport } from './routes/pilgrimage'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as HeritageRouteImport } from './routes/heritage'
+import { Route as GovernmentRouteImport } from './routes/government'
+import { Route as FoodRouteImport } from './routes/food'
+import { Route as FestivalsRouteImport } from './routes/festivals'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ConnectivityRouteImport } from './routes/connectivity'
 import { Route as CertificatesRouteImport } from './routes/certificates'
 import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as BookingRouteImport } from './routes/booking'
@@ -34,8 +47,16 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as TemplesSlugRouteImport } from './routes/temples.$slug'
+import { Route as StudentsSlugRouteImport } from './routes/students.$slug'
+import { Route as StatesSlugRouteImport } from './routes/states.$slug'
+import { Route as SportsSlugRouteImport } from './routes/sports.$slug'
 import { Route as ReviewsNewRouteImport } from './routes/reviews.new'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
+import { Route as HeritageSlugRouteImport } from './routes/heritage.$slug'
+import { Route as GovernmentSlugRouteImport } from './routes/government.$slug'
+import { Route as FoodSlugRouteImport } from './routes/food.$slug'
+import { Route as FestivalsSlugRouteImport } from './routes/festivals.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as CancelIdRouteImport } from './routes/cancel.$id'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
@@ -82,6 +103,31 @@ const TrainingRoute = TrainingRouteImport.update({
   path: '/training',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplesRoute = TemplesRouteImport.update({
+  id: '/temples',
+  path: '/temples',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentsRoute = StudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentPortalRoute = StudentPortalRouteImport.update({
+  id: '/student-portal',
+  path: '/student-portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatesRoute = StatesRouteImport.update({
+  id: '/states',
+  path: '/states',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsRoute = SportsRouteImport.update({
+  id: '/sports',
+  path: '/sports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -102,9 +148,19 @@ const RewardsRoute = RewardsRouteImport.update({
   path: '/rewards',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RestaurantsRoute = RestaurantsRouteImport.update({
+  id: '/restaurants',
+  path: '/restaurants',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PilgrimageRoute = PilgrimageRouteImport.update({
+  id: '/pilgrimage',
+  path: '/pilgrimage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesRoute = PackagesRouteImport.update({
@@ -115,6 +171,31 @@ const PackagesRoute = PackagesRouteImport.update({
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageRoute = HeritageRouteImport.update({
+  id: '/heritage',
+  path: '/heritage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GovernmentRoute = GovernmentRouteImport.update({
+  id: '/government',
+  path: '/government',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoodRoute = FoodRouteImport.update({
+  id: '/food',
+  path: '/food',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FestivalsRoute = FestivalsRouteImport.update({
+  id: '/festivals',
+  path: '/festivals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -140,6 +221,11 @@ const DashboardRoute = DashboardRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectivityRoute = ConnectivityRouteImport.update({
+  id: '/connectivity',
+  path: '/connectivity',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CertificatesRoute = CertificatesRouteImport.update({
@@ -192,6 +278,26 @@ const TripsIdRoute = TripsIdRouteImport.update({
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplesSlugRoute = TemplesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TemplesRoute,
+} as any)
+const StudentsSlugRoute = StudentsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => StudentsRoute,
+} as any)
+const StatesSlugRoute = StatesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => StatesRoute,
+} as any)
+const SportsSlugRoute = SportsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SportsRoute,
+} as any)
 const ReviewsNewRoute = ReviewsNewRouteImport.update({
   id: '/reviews/new',
   path: '/reviews/new',
@@ -201,6 +307,26 @@ const PackagesSlugRoute = PackagesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => PackagesRoute,
+} as any)
+const HeritageSlugRoute = HeritageSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HeritageRoute,
+} as any)
+const GovernmentSlugRoute = GovernmentSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GovernmentRoute,
+} as any)
+const FoodSlugRoute = FoodSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => FoodRoute,
+} as any)
+const FestivalsSlugRoute = FestivalsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => FestivalsRoute,
 } as any)
 const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
   id: '/$slug',
@@ -362,18 +488,31 @@ export interface FileRoutesByFullPath {
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
   '/certificates': typeof CertificatesRoute
+  '/connectivity': typeof ConnectivityRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
+  '/festivals': typeof FestivalsRouteWithChildren
+  '/food': typeof FoodRouteWithChildren
+  '/government': typeof GovernmentRouteWithChildren
+  '/heritage': typeof HeritageRouteWithChildren
+  '/map': typeof MapRoute
   '/notifications': typeof NotificationsRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/pilgrimage': typeof PilgrimageRoute
   '/profile': typeof ProfileRoute
+  '/restaurants': typeof RestaurantsRoute
   '/rewards': typeof RewardsRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sports': typeof SportsRouteWithChildren
+  '/states': typeof StatesRouteWithChildren
+  '/student-portal': typeof StudentPortalRoute
+  '/students': typeof StudentsRouteWithChildren
+  '/temples': typeof TemplesRouteWithChildren
   '/training': typeof TrainingRoute
   '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
@@ -407,8 +546,16 @@ export interface FileRoutesByFullPath {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/food/$slug': typeof FoodSlugRoute
+  '/government/$slug': typeof GovernmentSlugRoute
+  '/heritage/$slug': typeof HeritageSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/reviews/new': typeof ReviewsNewRoute
+  '/sports/$slug': typeof SportsSlugRoute
+  '/states/$slug': typeof StatesSlugRoute
+  '/students/$slug': typeof StudentsSlugRoute
+  '/temples/$slug': typeof TemplesSlugRoute
   '/trips/$id': typeof TripsIdRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -420,18 +567,31 @@ export interface FileRoutesByTo {
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
   '/certificates': typeof CertificatesRoute
+  '/connectivity': typeof ConnectivityRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
+  '/festivals': typeof FestivalsRouteWithChildren
+  '/food': typeof FoodRouteWithChildren
+  '/government': typeof GovernmentRouteWithChildren
+  '/heritage': typeof HeritageRouteWithChildren
+  '/map': typeof MapRoute
   '/notifications': typeof NotificationsRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/pilgrimage': typeof PilgrimageRoute
   '/profile': typeof ProfileRoute
+  '/restaurants': typeof RestaurantsRoute
   '/rewards': typeof RewardsRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sports': typeof SportsRouteWithChildren
+  '/states': typeof StatesRouteWithChildren
+  '/student-portal': typeof StudentPortalRoute
+  '/students': typeof StudentsRouteWithChildren
+  '/temples': typeof TemplesRouteWithChildren
   '/training': typeof TrainingRoute
   '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
@@ -465,8 +625,16 @@ export interface FileRoutesByTo {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/food/$slug': typeof FoodSlugRoute
+  '/government/$slug': typeof GovernmentSlugRoute
+  '/heritage/$slug': typeof HeritageSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/reviews/new': typeof ReviewsNewRoute
+  '/sports/$slug': typeof SportsSlugRoute
+  '/states/$slug': typeof StatesSlugRoute
+  '/students/$slug': typeof StudentsSlugRoute
+  '/temples/$slug': typeof TemplesSlugRoute
   '/trips/$id': typeof TripsIdRoute
   '/admin': typeof AdminIndexRoute
 }
@@ -480,18 +648,31 @@ export interface FileRoutesById {
   '/booking': typeof BookingRoute
   '/bookings': typeof BookingsRoute
   '/certificates': typeof CertificatesRoute
+  '/connectivity': typeof ConnectivityRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/design-system': typeof DesignSystemRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
+  '/festivals': typeof FestivalsRouteWithChildren
+  '/food': typeof FoodRouteWithChildren
+  '/government': typeof GovernmentRouteWithChildren
+  '/heritage': typeof HeritageRouteWithChildren
+  '/map': typeof MapRoute
   '/notifications': typeof NotificationsRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/pilgrimage': typeof PilgrimageRoute
   '/profile': typeof ProfileRoute
+  '/restaurants': typeof RestaurantsRoute
   '/rewards': typeof RewardsRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sports': typeof SportsRouteWithChildren
+  '/states': typeof StatesRouteWithChildren
+  '/student-portal': typeof StudentPortalRoute
+  '/students': typeof StudentsRouteWithChildren
+  '/temples': typeof TemplesRouteWithChildren
   '/training': typeof TrainingRoute
   '/welcome': typeof WelcomeRoute
   '/wishlist': typeof WishlistRoute
@@ -525,8 +706,16 @@ export interface FileRoutesById {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/cancel/$id': typeof CancelIdRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/festivals/$slug': typeof FestivalsSlugRoute
+  '/food/$slug': typeof FoodSlugRoute
+  '/government/$slug': typeof GovernmentSlugRoute
+  '/heritage/$slug': typeof HeritageSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/reviews/new': typeof ReviewsNewRoute
+  '/sports/$slug': typeof SportsSlugRoute
+  '/states/$slug': typeof StatesSlugRoute
+  '/students/$slug': typeof StudentsSlugRoute
+  '/temples/$slug': typeof TemplesSlugRoute
   '/trips/$id': typeof TripsIdRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -541,18 +730,31 @@ export interface FileRouteTypes {
     | '/booking'
     | '/bookings'
     | '/certificates'
+    | '/connectivity'
     | '/contact'
     | '/dashboard'
     | '/design-system'
     | '/destinations'
     | '/faq'
+    | '/festivals'
+    | '/food'
+    | '/government'
+    | '/heritage'
+    | '/map'
     | '/notifications'
     | '/packages'
+    | '/pilgrimage'
     | '/profile'
+    | '/restaurants'
     | '/rewards'
     | '/search'
     | '/settings'
     | '/sitemap.xml'
+    | '/sports'
+    | '/states'
+    | '/student-portal'
+    | '/students'
+    | '/temples'
     | '/training'
     | '/welcome'
     | '/wishlist'
@@ -586,8 +788,16 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/cancel/$id'
     | '/destinations/$slug'
+    | '/festivals/$slug'
+    | '/food/$slug'
+    | '/government/$slug'
+    | '/heritage/$slug'
     | '/packages/$slug'
     | '/reviews/new'
+    | '/sports/$slug'
+    | '/states/$slug'
+    | '/students/$slug'
+    | '/temples/$slug'
     | '/trips/$id'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -599,18 +809,31 @@ export interface FileRouteTypes {
     | '/booking'
     | '/bookings'
     | '/certificates'
+    | '/connectivity'
     | '/contact'
     | '/dashboard'
     | '/design-system'
     | '/destinations'
     | '/faq'
+    | '/festivals'
+    | '/food'
+    | '/government'
+    | '/heritage'
+    | '/map'
     | '/notifications'
     | '/packages'
+    | '/pilgrimage'
     | '/profile'
+    | '/restaurants'
     | '/rewards'
     | '/search'
     | '/settings'
     | '/sitemap.xml'
+    | '/sports'
+    | '/states'
+    | '/student-portal'
+    | '/students'
+    | '/temples'
     | '/training'
     | '/welcome'
     | '/wishlist'
@@ -644,8 +867,16 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/cancel/$id'
     | '/destinations/$slug'
+    | '/festivals/$slug'
+    | '/food/$slug'
+    | '/government/$slug'
+    | '/heritage/$slug'
     | '/packages/$slug'
     | '/reviews/new'
+    | '/sports/$slug'
+    | '/states/$slug'
+    | '/students/$slug'
+    | '/temples/$slug'
     | '/trips/$id'
     | '/admin'
   id:
@@ -658,18 +889,31 @@ export interface FileRouteTypes {
     | '/booking'
     | '/bookings'
     | '/certificates'
+    | '/connectivity'
     | '/contact'
     | '/dashboard'
     | '/design-system'
     | '/destinations'
     | '/faq'
+    | '/festivals'
+    | '/food'
+    | '/government'
+    | '/heritage'
+    | '/map'
     | '/notifications'
     | '/packages'
+    | '/pilgrimage'
     | '/profile'
+    | '/restaurants'
     | '/rewards'
     | '/search'
     | '/settings'
     | '/sitemap.xml'
+    | '/sports'
+    | '/states'
+    | '/student-portal'
+    | '/students'
+    | '/temples'
     | '/training'
     | '/welcome'
     | '/wishlist'
@@ -703,8 +947,16 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/cancel/$id'
     | '/destinations/$slug'
+    | '/festivals/$slug'
+    | '/food/$slug'
+    | '/government/$slug'
+    | '/heritage/$slug'
     | '/packages/$slug'
     | '/reviews/new'
+    | '/sports/$slug'
+    | '/states/$slug'
+    | '/students/$slug'
+    | '/temples/$slug'
     | '/trips/$id'
     | '/admin/'
   fileRoutesById: FileRoutesById
@@ -718,18 +970,31 @@ export interface RootRouteChildren {
   BookingRoute: typeof BookingRoute
   BookingsRoute: typeof BookingsRoute
   CertificatesRoute: typeof CertificatesRoute
+  ConnectivityRoute: typeof ConnectivityRoute
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
   DesignSystemRoute: typeof DesignSystemRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
   FaqRoute: typeof FaqRoute
+  FestivalsRoute: typeof FestivalsRouteWithChildren
+  FoodRoute: typeof FoodRouteWithChildren
+  GovernmentRoute: typeof GovernmentRouteWithChildren
+  HeritageRoute: typeof HeritageRouteWithChildren
+  MapRoute: typeof MapRoute
   NotificationsRoute: typeof NotificationsRoute
   PackagesRoute: typeof PackagesRouteWithChildren
+  PilgrimageRoute: typeof PilgrimageRoute
   ProfileRoute: typeof ProfileRoute
+  RestaurantsRoute: typeof RestaurantsRoute
   RewardsRoute: typeof RewardsRoute
   SearchRoute: typeof SearchRoute
   SettingsRoute: typeof SettingsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SportsRoute: typeof SportsRouteWithChildren
+  StatesRoute: typeof StatesRouteWithChildren
+  StudentPortalRoute: typeof StudentPortalRoute
+  StudentsRoute: typeof StudentsRouteWithChildren
+  TemplesRoute: typeof TemplesRouteWithChildren
   TrainingRoute: typeof TrainingRoute
   WelcomeRoute: typeof WelcomeRoute
   WishlistRoute: typeof WishlistRoute
@@ -766,6 +1031,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrainingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/temples': {
+      id: '/temples'
+      path: '/temples'
+      fullPath: '/temples'
+      preLoaderRoute: typeof TemplesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/students': {
+      id: '/students'
+      path: '/students'
+      fullPath: '/students'
+      preLoaderRoute: typeof StudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student-portal': {
+      id: '/student-portal'
+      path: '/student-portal'
+      fullPath: '/student-portal'
+      preLoaderRoute: typeof StudentPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/states': {
+      id: '/states'
+      path: '/states'
+      fullPath: '/states'
+      preLoaderRoute: typeof StatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports': {
+      id: '/sports'
+      path: '/sports'
+      fullPath: '/sports'
+      preLoaderRoute: typeof SportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -794,11 +1094,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RewardsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/restaurants': {
+      id: '/restaurants'
+      path: '/restaurants'
+      fullPath: '/restaurants'
+      preLoaderRoute: typeof RestaurantsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pilgrimage': {
+      id: '/pilgrimage'
+      path: '/pilgrimage'
+      fullPath: '/pilgrimage'
+      preLoaderRoute: typeof PilgrimageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages': {
@@ -813,6 +1127,41 @@ declare module '@tanstack/react-router' {
       path: '/notifications'
       fullPath: '/notifications'
       preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage': {
+      id: '/heritage'
+      path: '/heritage'
+      fullPath: '/heritage'
+      preLoaderRoute: typeof HeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/government': {
+      id: '/government'
+      path: '/government'
+      fullPath: '/government'
+      preLoaderRoute: typeof GovernmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/food': {
+      id: '/food'
+      path: '/food'
+      fullPath: '/food'
+      preLoaderRoute: typeof FoodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/festivals': {
+      id: '/festivals'
+      path: '/festivals'
+      fullPath: '/festivals'
+      preLoaderRoute: typeof FestivalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -848,6 +1197,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connectivity': {
+      id: '/connectivity'
+      path: '/connectivity'
+      fullPath: '/connectivity'
+      preLoaderRoute: typeof ConnectivityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/certificates': {
@@ -920,6 +1276,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/temples/$slug': {
+      id: '/temples/$slug'
+      path: '/$slug'
+      fullPath: '/temples/$slug'
+      preLoaderRoute: typeof TemplesSlugRouteImport
+      parentRoute: typeof TemplesRoute
+    }
+    '/students/$slug': {
+      id: '/students/$slug'
+      path: '/$slug'
+      fullPath: '/students/$slug'
+      preLoaderRoute: typeof StudentsSlugRouteImport
+      parentRoute: typeof StudentsRoute
+    }
+    '/states/$slug': {
+      id: '/states/$slug'
+      path: '/$slug'
+      fullPath: '/states/$slug'
+      preLoaderRoute: typeof StatesSlugRouteImport
+      parentRoute: typeof StatesRoute
+    }
+    '/sports/$slug': {
+      id: '/sports/$slug'
+      path: '/$slug'
+      fullPath: '/sports/$slug'
+      preLoaderRoute: typeof SportsSlugRouteImport
+      parentRoute: typeof SportsRoute
+    }
     '/reviews/new': {
       id: '/reviews/new'
       path: '/reviews/new'
@@ -933,6 +1317,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/packages/$slug'
       preLoaderRoute: typeof PackagesSlugRouteImport
       parentRoute: typeof PackagesRoute
+    }
+    '/heritage/$slug': {
+      id: '/heritage/$slug'
+      path: '/$slug'
+      fullPath: '/heritage/$slug'
+      preLoaderRoute: typeof HeritageSlugRouteImport
+      parentRoute: typeof HeritageRoute
+    }
+    '/government/$slug': {
+      id: '/government/$slug'
+      path: '/$slug'
+      fullPath: '/government/$slug'
+      preLoaderRoute: typeof GovernmentSlugRouteImport
+      parentRoute: typeof GovernmentRoute
+    }
+    '/food/$slug': {
+      id: '/food/$slug'
+      path: '/$slug'
+      fullPath: '/food/$slug'
+      preLoaderRoute: typeof FoodSlugRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/festivals/$slug': {
+      id: '/festivals/$slug'
+      path: '/$slug'
+      fullPath: '/festivals/$slug'
+      preLoaderRoute: typeof FestivalsSlugRouteImport
+      parentRoute: typeof FestivalsRoute
     }
     '/destinations/$slug': {
       id: '/destinations/$slug'
@@ -1233,6 +1645,52 @@ const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
   DestinationsRouteChildren,
 )
 
+interface FestivalsRouteChildren {
+  FestivalsSlugRoute: typeof FestivalsSlugRoute
+}
+
+const FestivalsRouteChildren: FestivalsRouteChildren = {
+  FestivalsSlugRoute: FestivalsSlugRoute,
+}
+
+const FestivalsRouteWithChildren = FestivalsRoute._addFileChildren(
+  FestivalsRouteChildren,
+)
+
+interface FoodRouteChildren {
+  FoodSlugRoute: typeof FoodSlugRoute
+}
+
+const FoodRouteChildren: FoodRouteChildren = {
+  FoodSlugRoute: FoodSlugRoute,
+}
+
+const FoodRouteWithChildren = FoodRoute._addFileChildren(FoodRouteChildren)
+
+interface GovernmentRouteChildren {
+  GovernmentSlugRoute: typeof GovernmentSlugRoute
+}
+
+const GovernmentRouteChildren: GovernmentRouteChildren = {
+  GovernmentSlugRoute: GovernmentSlugRoute,
+}
+
+const GovernmentRouteWithChildren = GovernmentRoute._addFileChildren(
+  GovernmentRouteChildren,
+)
+
+interface HeritageRouteChildren {
+  HeritageSlugRoute: typeof HeritageSlugRoute
+}
+
+const HeritageRouteChildren: HeritageRouteChildren = {
+  HeritageSlugRoute: HeritageSlugRoute,
+}
+
+const HeritageRouteWithChildren = HeritageRoute._addFileChildren(
+  HeritageRouteChildren,
+)
+
 interface PackagesRouteChildren {
   PackagesSlugRoute: typeof PackagesSlugRoute
 }
@@ -1245,6 +1703,51 @@ const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
   PackagesRouteChildren,
 )
 
+interface SportsRouteChildren {
+  SportsSlugRoute: typeof SportsSlugRoute
+}
+
+const SportsRouteChildren: SportsRouteChildren = {
+  SportsSlugRoute: SportsSlugRoute,
+}
+
+const SportsRouteWithChildren =
+  SportsRoute._addFileChildren(SportsRouteChildren)
+
+interface StatesRouteChildren {
+  StatesSlugRoute: typeof StatesSlugRoute
+}
+
+const StatesRouteChildren: StatesRouteChildren = {
+  StatesSlugRoute: StatesSlugRoute,
+}
+
+const StatesRouteWithChildren =
+  StatesRoute._addFileChildren(StatesRouteChildren)
+
+interface StudentsRouteChildren {
+  StudentsSlugRoute: typeof StudentsSlugRoute
+}
+
+const StudentsRouteChildren: StudentsRouteChildren = {
+  StudentsSlugRoute: StudentsSlugRoute,
+}
+
+const StudentsRouteWithChildren = StudentsRoute._addFileChildren(
+  StudentsRouteChildren,
+)
+
+interface TemplesRouteChildren {
+  TemplesSlugRoute: typeof TemplesSlugRoute
+}
+
+const TemplesRouteChildren: TemplesRouteChildren = {
+  TemplesSlugRoute: TemplesSlugRoute,
+}
+
+const TemplesRouteWithChildren =
+  TemplesRoute._addFileChildren(TemplesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -1254,18 +1757,31 @@ const rootRouteChildren: RootRouteChildren = {
   BookingRoute: BookingRoute,
   BookingsRoute: BookingsRoute,
   CertificatesRoute: CertificatesRoute,
+  ConnectivityRoute: ConnectivityRoute,
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
   DesignSystemRoute: DesignSystemRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
   FaqRoute: FaqRoute,
+  FestivalsRoute: FestivalsRouteWithChildren,
+  FoodRoute: FoodRouteWithChildren,
+  GovernmentRoute: GovernmentRouteWithChildren,
+  HeritageRoute: HeritageRouteWithChildren,
+  MapRoute: MapRoute,
   NotificationsRoute: NotificationsRoute,
   PackagesRoute: PackagesRouteWithChildren,
+  PilgrimageRoute: PilgrimageRoute,
   ProfileRoute: ProfileRoute,
+  RestaurantsRoute: RestaurantsRoute,
   RewardsRoute: RewardsRoute,
   SearchRoute: SearchRoute,
   SettingsRoute: SettingsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SportsRoute: SportsRouteWithChildren,
+  StatesRoute: StatesRouteWithChildren,
+  StudentPortalRoute: StudentPortalRoute,
+  StudentsRoute: StudentsRouteWithChildren,
+  TemplesRoute: TemplesRouteWithChildren,
   TrainingRoute: TrainingRoute,
   WelcomeRoute: WelcomeRoute,
   WishlistRoute: WishlistRoute,
