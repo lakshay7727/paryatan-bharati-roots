@@ -1020,16 +1020,20 @@ function QuickAccess() {
   const tiles = [
     { to: "/ai-planner", icon: Sparkles, title: "AI Trip Planner", desc: "Personalised itineraries in seconds.", tone: "royal" },
     { to: "/destinations", icon: MapPin, title: "Destinations", desc: "All 28 states, verified.", tone: "emerald" },
+    { to: "/states", icon: Flag, title: "State explorer", desc: "One country, 28 stories.", tone: "sunset" },
+    { to: "/temples", icon: Landmark, title: "Temples & spiritual", desc: "Char Dham, Jyotirlingas & more.", tone: "royal" },
+    { to: "/heritage", icon: Building2, title: "Culture & heritage", desc: "UNESCO sites, forts, palaces.", tone: "emerald" },
+    { to: "/festivals", icon: Sparkles, title: "Festivals of India", desc: "365 days of celebrations.", tone: "sunset" },
+    { to: "/food", icon: UtensilsCrossed, title: "Local food guide", desc: "Dishes, streets & thalis.", tone: "sunset" },
+    { to: "/sports", icon: Mountain, title: "Sports tourism", desc: "Events, adventure & stadiums.", tone: "royal" },
+    { to: "/students", icon: GraduationCap, title: "Student tourism", desc: "Educational & camp tours.", tone: "emerald" },
+    { to: "/government", icon: Flag, title: "Government schemes", desc: "Subsidies, grants, campaigns.", tone: "royal" },
+    { to: "/connectivity", icon: Train, title: "Connectivity", desc: "Flights, trains, cabs, ferries.", tone: "emerald" },
+    { to: "/map", icon: MapPin, title: "Interactive map", desc: "Layered map of India.", tone: "sunset" },
     { to: "/packages", icon: PlaneTakeoff, title: "Packages", desc: "Curated tours from ₹5,999.", tone: "sunset" },
     { to: "/bookings", icon: CalendarDays, title: "My Bookings", desc: "Tickets, tracking & invoices.", tone: "royal" },
-    { to: "/wishlist", icon: Heart, title: "Wishlist", desc: "Save & compare journeys.", tone: "sunset" },
-    { to: "/training", icon: GraduationCap, title: "Training Center", desc: "Learn & earn certificates.", tone: "emerald" },
-    { to: "/certificates", icon: Award, title: "Certificates", desc: "Verified digital credentials.", tone: "royal" },
-    { to: "/rewards", icon: TrendingUp, title: "Rewards", desc: "Points, tiers & perks.", tone: "sunset" },
-    { to: "/notifications", icon: Bell, title: "Notifications", desc: "Alerts & offers.", tone: "emerald" },
+    { to: "/training", icon: BookOpen, title: "Training center", desc: "Learn & earn certificates.", tone: "emerald" },
     { to: "/dashboard", icon: LayoutDashboard, title: "Dashboard", desc: "Your workspace.", tone: "royal" },
-    { to: "/profile", icon: Users, title: "Profile", desc: "Preferences & documents.", tone: "sunset" },
-    { to: "/settings", icon: Cog, title: "Settings", desc: "Privacy & language.", tone: "emerald" },
   ];
   const tone = (t: string) =>
     t === "royal" ? "bg-royal-100 text-primary" : t === "emerald" ? "bg-emerald-100 text-emerald-700" : "bg-sunset-100 text-accent";
